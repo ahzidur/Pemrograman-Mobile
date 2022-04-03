@@ -1,0 +1,66 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MainPage(),
+    );
+  }
+}
+
+class MainPage extends StatelessWidget {
+  const MainPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var tinggi = MediaQuery.of(context).size.height;
+    var lebar = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Color.fromARGB(0, 0, 255, 0),
+        title: Text("POSTTEST 1 AHMAD ZIDAN MAULIDINNUR"),
+        titleTextStyle: const TextStyle(
+            color: Color.fromARGB(250, 0, 0, 0),
+            fontWeight: FontWeight.bold,
+            fontStyle: FontStyle.normal,
+            fontSize: 21.0),
+      ),
+      body: Container(
+        margin: EdgeInsets.all(100),
+        width: lebar / 1.5,
+        height: tinggi / 1.5,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(1000),
+          gradient: LinearGradient(colors: [
+            Color.fromARGB(255, 252, 6, 6),
+            Color.fromARGB(255, 0, 132, 255),
+            Color.fromARGB(255, 255, 238, 0),
+          ], begin: Alignment.topRight, end: Alignment.bottomLeft),
+          color: Color.fromARGB(255, 255, 0, 255),
+          border: Border.all(
+            width: 5,
+            color: Color.fromARGB(255, 250, 102, 3),
+          ),
+        ),
+        child: const Text(
+          "Ahmad Zidan Maulidinnur",
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Color.fromARGB(248, 0, 0, 0),
+          ),
+        ),
+      ),
+    );
+  }
+}
