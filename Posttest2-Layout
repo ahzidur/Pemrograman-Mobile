@@ -1,0 +1,201 @@
+import 'package:flutter/material.dart';
+import 'package:posttest2_ahmadzidanmaulidinnur_2009106018/mainpage.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: mainpage(),
+    );
+  }
+}
+
+
+import 'package:flutter/material.dart';
+
+class mainpage extends StatelessWidget {
+  const mainpage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: Icon(Icons.home),
+        title: Text("Ahmad Zidan Maulidinnur"),
+        backgroundColor: Color.fromARGB(255, 255, 0, 0),
+        titleSpacing: 15,
+      ),
+      backgroundColor: Color.fromARGB(255, 208, 203, 203),
+      body: ListView(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 200,
+                height: 200,
+                margin: EdgeInsets.only(top: 20, bottom: 30),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(40),
+                  image: DecorationImage(
+                    image: AssetImage("assets/Honda.jpg"),
+                  ),
+                ),
+              ),
+              Text(
+                "Zidan Jaya Motor",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                "\nTempat Penjualan Kendaraan Berbagai Jenis Motor",
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SizeContainer(gambar: "Honda CBR 250RR"),
+                  SizeContainer(isActive: true, gambar: "Honda CBR 150R"),
+                  SizeContainer(gambar: "Honda CB 150R"),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SizeContainer(gambar: "Honda PCX 160"),
+                  SizeContainer(gambar: "Honda ADV 150"),
+                  SizeContainer(gambar: "Honda Vario 150"),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SizeContainer(gambar: "Honda Scoopy"),
+                  SizeContainer(gambar: "Honda Supra"),
+                  SizeContainer(gambar: "Honda Beat"),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  MyContact(),
+                  MyAkun(),
+                ],
+              ),
+              Text(
+                "> Honda Satu Di Hati <\n",
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SizeContainer extends StatelessWidget {
+  const SizeContainer({Key? key, this.isActive = false, required this.gambar})
+      : super(key: key);
+
+  final bool isActive;
+  final String gambar;
+
+  @override
+  Widget build(BuildContext context) {
+    var lebar = MediaQuery.of(context).size.width;
+    return Container(
+      margin: EdgeInsets.only(top: 15),
+      width: lebar / 4,
+      height: 75,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: isActive
+            ? Color.fromARGB(255, 255, 0, 0)
+            : Color.fromARGB(0, 255, 0, 0),
+        borderRadius: BorderRadius.circular(50),
+        border: Border.all(
+          width: 2,
+          color: Color.fromARGB(255, 255, 0, 0),
+        ),
+      ),
+      child: Text(
+        gambar,
+        style: TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.bold,
+          color: isActive ? Colors.white : Color.fromARGB(255, 0, 0, 0),
+        ),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+}
+
+class Kontak extends StatelessWidget {
+  const MyContact({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var lebar = MediaQuery.of(context).size.width;
+    return Container(
+      width: lebar / 2.5,
+      height: 60,
+      margin: EdgeInsets.only(top: 40, bottom: 10),
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 255, 0, 0),
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Text(
+        "Kontak",
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 20,
+        ),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+}
+
+class Harga extends StatelessWidget {
+  const MyAkun({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var lebar = MediaQuery.of(context).size.width;
+    return Container(
+      width: lebar / 2.5,
+      height: 60,
+      margin: EdgeInsets.only(top: 40, bottom: 10),
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 255, 0, 0),
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Text(
+        "Harga",
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 20,
+        ),
+      ),
+    );
+  }
+}
+
