@@ -9,10 +9,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Post Test 3",
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      title: "Ahmad Zidan Maulidinnur",
+      theme: ThemeData(),
       home: const MyHomePage(),
     );
   }
@@ -27,7 +25,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int angka = 0;
-  String nama = " ", barang = "", jumlah = "";
+  String nama = " ", motor = "", jumlah = "";
   TextEditingController controllerA = TextEditingController();
   TextEditingController controllerB = TextEditingController();
   TextEditingController controllerC = TextEditingController();
@@ -39,29 +37,30 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("Zidan Jaya Motor"),
       ),
-      backgroundColor: Color.fromARGB(255, 255, 0, 0)     body: ListView(
+      backgroundColor: Color.fromARGB(255, 255, 0, 0),
+      body: ListView(
         children: [
           Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
             Container(
               width: 200,
-              height: 250,
-              margin: EdgeInsets.only(top: 61),
+              height: 200,
+              margin: EdgeInsets.only(top: 5),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/Honda.png"),
+                  image: AssetImage("assets/a.jpeg"),
                 ),
               ),
             ),
             Text(
-              "Tempat Penjualan Kendaraan Honda",
+              "Tempat Pembelian Motor\n",
               style: TextStyle(
-                fontSize: 25,
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 0, 0, 0),
               ),
             ),
           ]),
-          SizedBox(height: 22),
+          SizedBox(height: 10),
           TextFormField(
             controller: controllerA,
             decoration: InputDecoration(
@@ -70,36 +69,36 @@ class _MyHomePageState extends State<MyHomePage> {
               border: OutlineInputBorder(),
             ),
           ),
-          SizedBox(height: 32),
+          SizedBox(height: 10),
           TextFormField(
             controller: controllerB,
             decoration: InputDecoration(
-              labelText: "Masukkan Barang Belanjaan",
+              labelText: "Masukkan Belanjaan Motor",
               icon: Icon(Icons.shopping_cart),
               border: OutlineInputBorder(),
             ),
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 10),
           TextFormField(
             controller: controllerC,
             decoration: InputDecoration(
-              labelText: "Masukkan Jumlah Barang",
+              labelText: "Masukkan Jumlah Motor",
               icon: Icon(Icons.shopping_bag),
               border: OutlineInputBorder(),
             ),
           ),
-          SizedBox(height: 32),
+          SizedBox(height: 10),
           ElevatedButton(
             onPressed: () {
               setState(() {
                 nama = controllerA.text;
-                barang = controllerB.text;
+                motor = controllerB.text;
                 jumlah = controllerC.text;
               });
             },
             child: Text("Submit"),
           ),
-          Text("Apakah yang Anda masukkan sudah benar?"),
+          Text("Apakah Yang Anda Masukkan Sudah Benar?"),
           Checkbox(
               value: myCheck,
               onChanged: (value) {
@@ -107,9 +106,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 setState(() {});
               }),
           Text(
-              "\t\tNama Anda : $nama \n \t\tBarang Belanjaan :  $barang \n \t\tJumlah Barang : $jumlah \n Terima Kasih")
+              "\tNama Anda : $nama \n Belanjaan Motor :  $motor \n Jumlah Motor : $jumlah \n >Terima Kasih<")
         ],
       ),
     );
   }
 }
+
